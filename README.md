@@ -6,7 +6,7 @@ An interactive website for explorers aged 8–12, telling the stories of the mac
 
 Made for the **NASA Space Apps Challenge 2026** challenge *Abandoned but not Forgotten: Storytelling about NASA's Discarded Equipment on the Moon and Mars*.
 
-**▶ Live demo:** [add your GitHub Pages link here]
+**▶ Live demo:** https://fjord000.github.io/three-silences/
 
 ---
 
