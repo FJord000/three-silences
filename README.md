@@ -71,4 +71,4 @@ The software was built with the help of an AI assistant, Claude by Anthropic, wh
 
 ## Team
 
-[Team name and members]
+Intelligent Gravity-free Nova Insights for Safety (IGNIFS) - Yusa Emre Arıc  
