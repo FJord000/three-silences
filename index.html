@@ -1,6 +1,12 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Three Silences: interactive stories of the machines humanity left on the Moon, on Mars and in deep space. NASA Space Apps Challenge 2026.">
 <title>Three Silences</title>
-<meta name="claude:viewport-fit-sides" content="cover">
+</head>
+<body>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
@@ -1309,8 +1315,8 @@ function helix(g,x,y,z,r,h,turns,tube,mat,part){const pts=[];for(let i=0;i<=turn
    fetch() yerine script kullanılır, çünkü indirilen zip çift tıklanıp açılınca (file://) tarayıcılar fetch'i engeller; script her yerde çalışır. ---- */
 const MODEL_WAIT={};
 function loadModelText(name){window.__MODELS=window.__MODELS||{};if(window.__MODELS[name])return Promise.resolve(window.__MODELS[name]);
-  return MODEL_WAIT[name]||(MODEL_WAIT[name]=new Promise((ok,no)=>{const s=document.createElement('script');s.src='models/'+name+'-glb.js';s.async=true;
-    s.onload=()=>window.__MODELS[name]?ok(window.__MODELS[name]):no(new Error('empty model '+name));s.onerror=()=>{delete MODEL_WAIT[name];no(new Error('cannot load model '+name))};document.head.appendChild(s)}))}
+  return MODEL_WAIT[name]||(MODEL_WAIT[name]=new Promise((ok,no)=>{const dirs=['models/',''];const tryAt=i=>{const s=document.createElement('script');s.src=dirs[i]+name+'-glb.js';s.async=true;
+    s.onload=()=>window.__MODELS[name]?ok(window.__MODELS[name]):no(new Error('empty model '+name));s.onerror=()=>{s.remove();if(i+1<dirs.length)tryAt(i+1);else{delete MODEL_WAIT[name];no(new Error('cannot load model '+name))}};document.head.appendChild(s)};tryAt(0)}))}
 /* ---- Opportunity gerçek 3D modeli: models/opportunity-glb.txt, ilk gerektiğinde yüklenir ---- */
 let OPP_GL=null,OPP_LOADING=false;
 function oppLoad(){if(OPP_GL||OPP_LOADING||!THREE.GLTFLoader)return;OPP_LOADING=true;
@@ -2494,4 +2500,5 @@ requestAnimationFrame(loop);
 })();
 </script>
 
-</body></html>
+</body>
+</html>
